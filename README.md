@@ -4,3 +4,5 @@ This is the Pinteresting sample application for
 [*One Month Rails*](http://onemonthrails.com)
 
 by jamessamuel
+
+Change for testing deployment
