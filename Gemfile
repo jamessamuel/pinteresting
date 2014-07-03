@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'devise', '~> 3.1.0.rc2'
 
 
 #only use sqlite gem in development and testing
