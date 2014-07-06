@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :pins
+    # this resources route creates 8 routes to:
+    #   index, create, new, edit, show, update, update, destroy
+    #   new: creates a pin
+    #   create: submits a new pin
+    #   edit (:id)/edit - allows editing of a pin
+    #   show /(:id) - shows the pin
+    #   update (2 versions for diff html types) - result of edit
+    #   destroy - delete
+
+
   devise_for :users
   root 'pages#home'
   get 'about' => 'pages#about'

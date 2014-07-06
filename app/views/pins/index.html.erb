@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h1>Listing pins</h1>
+  </div>
+  <br />
+
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <!-- 
+           - @pins variable set in pins_controller.rb
+           - .each is the method we are calling on the funct @pins 
+           - .each will run a loop between 'do' and 'end'
+           - so this will create a row in the table for each |pin|
+           - pin = is the same as pin_path(pin) = path to that pin
+           - destroy = same as pin but with method: :delete
+           - confirm: 'are you sure?' is the generic popup
+          -->
+
+              
+              <% @pins.each do |pin| %>
+            <tr>
+              <td><%= pin.description %></td>
+              
+                <td>
+                  <%= link_to 'Show', pin, class:"btn btn-success btn-sm" %>
+                  <%= link_to 'Edit', edit_pin_path(pin),  class:"btn btn-info btn-sm" %>
+                  <%= link_to 'Destroy', pin,  class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure Bro?' } %>
+                </td>
+              
+              </tr>
+      
+
+
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<br>
+  <div class="panel-footer">
+    <%= link_to 'New Pin', new_pin_path, class:"btn btn-danger" %>
+  </div>
+</div>
