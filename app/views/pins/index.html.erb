@@ -11,6 +11,7 @@
         <thead>
           <tr>
             <th>Description</th>
+            <th>User ID</th>
             <th colspan="1"></th>
           </tr>
         </thead>
@@ -31,13 +32,18 @@
               <% @pins.each do |pin| %>
             <tr>
               <td><%= pin.description %></td>
-              
+              <!-- if functions means it will only show pin.user.email if pin.user is true, that is, if the pin has a user. Otherwise it will be blank -->
+              <td><%= pin.user.email if pin.user %></td>
+
                 <td>
                   <%= link_to 'Show', pin, class:"btn btn-success btn-sm" %>
-                  <%= link_to 'Edit', edit_pin_path(pin),  class:"btn btn-info btn-sm" %>
-                  <%= link_to 'Destroy', pin,  class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure Bro?' } %>
+                  <!-- only show edit and destroy buttons if pin user is the logged in user. This next line is true if pin.user is current_user -->
+                  <% if pin.user == current_user %>
+                    <%= link_to 'Edit', edit_pin_path(pin),  class:"btn btn-info btn-sm" %>
+                    <%= link_to 'Destroy', pin,  class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure Bro?' } %>
+                  <% end %>
                 </td>
-              
+
               </tr>
       
 
@@ -50,7 +56,10 @@
   </div>
 
 <br>
-  <div class="panel-footer">
-    <%= link_to 'New Pin', new_pin_path, class:"btn btn-danger" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="panel-footer">
+      <%= link_to 'New Pin', new_pin_path, class:"btn btn-danger" %>
+    </div>
+  <% end %>
+
 </div>
