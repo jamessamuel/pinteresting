@@ -10,6 +10,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Image</th>
             <th>Description</th>
             <th>User ID</th>
             <th colspan="1"></th>
@@ -31,6 +32,7 @@
               
               <% @pins.each do |pin| %>
             <tr>
+              <td><%= image_tag pin.image.url( :medium) %></td>
               <td><%= pin.description %></td>
               <!-- if functions means it will only show pin.user.email if pin.user is true, that is, if the pin has a user. Otherwise it will be blank -->
               <td><%= pin.user.email if pin.user %></td>

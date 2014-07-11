@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.1.0.rc2'
-gem 'paperclip', '~> 3.0'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 #only use sqlite gem in development and testing
 group :development, :test do
