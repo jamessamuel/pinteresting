@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+
+#~ 3 means install version 3.x as high as posible, but not 4 so that major upgrades don't break the application
 gem 'rails', '4.1.2'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -10,7 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.1.0.rc2'
-
+gem 'paperclip', '~> 3.0'
 
 #only use sqlite gem in development and testing
 group :development, :test do
