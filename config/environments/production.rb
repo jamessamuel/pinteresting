@@ -84,5 +84,15 @@ Rails.application.configure do
   # set to actual host
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  # Sets up paperclip for Heroku (Amazon S3)
+  # Note the passwords are variables which can be set from the command line so passwords arnt visible in the code
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 
 end
